@@ -1,0 +1,18 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(45, 44, 44);
+    padding: 10px;
+}
+.logo{
+    color: aliceblue;
+}
+.navbar-items{
+    display: flex;
+    list-style-type: none;
+    color: aliceblue;
+}
+.navbar-items li{
+    margin: 0 20px;
+}
