@@ -19,29 +19,24 @@ const TypingBounce = ({ text, trigger }) => {
     <div
       key={key}
       style={{
-        fontFamily: "'Courier New', Courier, monospace",
-        fontSize: 72,
-        color: "#222",
-        fontWeight: "700",
-        borderRight: "3px solid #007BFF", // bright blue cursor
+        fontFamily: "monospace",
+        fontSize: "clamp(1.5rem, 6vw, 4rem)", // responsive font size
+        borderRight: "3px solid #007BFF",
         whiteSpace: "nowrap",
         overflow: "hidden",
         width: 0,
-        animation: `typing 3s steps(${text.length}, end) forwards, blink 1s step-end infinite 3s`,
+        maxWidth: "90vw", // max width fits phone screen
+        animation: `typing 2.5s steps(${text.length}, end) forwards, blink 1s step-end infinite 2.5s`,
         margin: "20px auto",
-        maxWidth: `${text.length}ch`,
-        textShadow: "2px 2px 4px rgba(0,0,0,0.1)",
-        userSelect: "none",
-        cursor: "default",
+        color: "#222",
+        textAlign: "center",
       }}
-      aria-label={text}
-      role="text"
     >
       {text}
       <style>{`
-        @keyframes typing {
+       @keyframes typing {
           from { width: 0 }
-          to { width: ${text.length}ch }
+          to { width: 100% }
         }
         @keyframes blink {
           0%, 100% { border-color: transparent }
@@ -59,34 +54,29 @@ export default function App() {
     <div
       style={{
         textAlign: "center",
-        marginTop: 80,
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        marginTop: 60,
+        fontFamily: "'Segoe UI', sans-serif",
         background: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
         minHeight: "100vh",
-        padding: "40px",
+        padding: "5vw",
+        boxSizing: "border-box",
       }}
     >
       <button
         onClick={() => setClicks((c) => (c >= 2 ? 0 : c + 1))}
         style={{
-          padding: "14px 28px",
-          fontSize: 22,
+          padding: "12px 24px",
+          fontSize: "clamp(1rem, 4vw, 1.5rem)", // responsive button font
           fontWeight: "600",
-          borderRadius: 8,
+          borderRadius: 10,
           border: "none",
           backgroundColor: "#007BFF",
           color: "white",
           cursor: "pointer",
           boxShadow: "0 4px 8px rgba(0,123,255,0.3)",
-          transition: "background-color 0.3s ease",
-          userSelect: "none",
+          transition: "0.3s ease",
+          maxWidth: "90%",
         }}
-        onMouseEnter={(e) =>
-          (e.currentTarget.style.backgroundColor = "#0056b3")
-        }
-        onMouseLeave={(e) =>
-          (e.currentTarget.style.backgroundColor = "#007BFF")
-        }
       >
         Counter?
       </button>
@@ -94,11 +84,10 @@ export default function App() {
       {clicks === 1 && (
         <div
           style={{
-            fontSize: 80,
+            fontSize: "clamp(3rem, 12vw, 5rem)",
             marginTop: 30,
             fontWeight: "bold",
             color: "#333",
-            textShadow: "2px 2px 6px rgba(0,0,0,0.1)",
             userSelect: "none",
           }}
         >
