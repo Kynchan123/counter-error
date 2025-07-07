@@ -95,7 +95,7 @@ export default function App() {
         </div>
       )}
 
-      {clicks === 2 && <TypingBounce text="pababy naman oh" trigger={clicks} />}
+      {clicks === 2 && <TypingBounce text="pababy naman oh🥹" trigger={clicks} />}
     </div>
   );
 }
